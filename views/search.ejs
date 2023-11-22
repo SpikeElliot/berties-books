@@ -6,10 +6,16 @@
   </head>
   <body>
     <h1>Search <%=shopName%></h1>
+    <h2>What book do you want?</h2>
     <form action="/search-result" method="GET">
-      <p>What book do you want?</p>
+      <p>Strict Search</p>
       <input id="search-box" type="text" name="keyword" value="Default">
       <input type="submit" value="Search" >
+    </form>
+    <form action="/advanced-search-result" method="GET">
+      <p>Advanced Search</p>
+      <input id="search-box" type="text" name="advKeyword" value="Default">
+      <input type="submit" value="Advanced Search" >
     </form>
   </body>
 </html>

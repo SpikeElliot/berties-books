@@ -1,0 +1,20 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Bargains at <%=shopName%></title>
+    <link rel="stylesheet"  type="text/css" href="/main.css" />
+  </head>
+  <body>
+    <h1><%=shopName%> Bargains</h1>
+    <h2>Here are all books currently under £20:</h2>
+    <ul>
+      <ul>
+        <!-- For loop iterates through objects in shops array -->
+        <% for (let i = 0; i < availableBooks.length; i++) { %>
+          <!-- Display properties of each object as list items on page -->
+          <li><%= availableBooks[i].name + ", £" + availableBooks[i].price %></li>
+        <% } %>
+      </ul>
+  </ul>
+  </body>
+</html>
