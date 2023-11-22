@@ -25,6 +25,7 @@ module.exports = function(app, shopData) {
                     res.send("No results found");
                 } else {
                     // display search results page if array not empty
+                    console.log(newData);
                     res.render("search-results.ejs", newData);
                 }
             }
@@ -45,6 +46,7 @@ module.exports = function(app, shopData) {
                     res.send("No results found");
                 } else {
                     // display search results page if array not empty
+                    console.log(newData);
                     res.render("search-results.ejs", newData);
                 }
             }
