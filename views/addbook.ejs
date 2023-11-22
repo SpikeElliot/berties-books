@@ -6,10 +6,12 @@
   </head>
   <body>
     <h1>Add Book to <%=shopName%></h1>
-    <form method="POST" action="/bookadded">
+    <!-- POST method for sending data to server -->
+    <form method="POST" action="/bookadded"> <!-- send user to /bookadded route upon form submission -->
       <p>What is the name and price of the book you want to add?</p>
       <input id="name" type="text" name="name" value="Name">
-      <input id="price" type="number" name="price" min="0" value="10.00" step=".01">
+      <!-- Price can't be below 0 and changes in increments of .01 -->
+      <input id="price" type="number" name="price" min="0" value="20" step=".01">
       <input type="submit" value="Add Book" >
     </form>
   </body>

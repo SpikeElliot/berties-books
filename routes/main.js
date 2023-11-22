@@ -11,34 +11,40 @@ module.exports = function(app, shopData) {
         res.render("search.ejs", shopData);
     });
     app.get('/search-result', function (req,res) {
-        // searching in the database
+        // sql query to execute
         let sqlquery = "SELECT * FROM `books` WHERE `name` = ?";
-        // execute sql query
+        // search database for names matching user input submitted through form
         db.query(sqlquery, [req.query.keyword], (err, result) => {
             if (err) {
+                // redirect to index page if error
                 res.redirect('./');
             } else {
+                // create newData object by combining shopData and data found in database
                 let newData = Object.assign({}, shopData, {availableBooks:result});
-                if (!newData.availableBooks.length) {
+                if (!newData.availableBooks.length) { // check if array empty
                     res.send("No results found");
                 } else {
+                    // display search results page if array not empty
                     res.render("search-results.ejs", newData);
                 }
             }
          });
     });
     app.get('/advanced-search-result', function (req,res) {
-        // searching in the database
+        // sql query to execute
         let sqlquery = "SELECT * FROM `books` WHERE `name` LIKE ?";
-        // execute sql query
+        // search database for names containing user input submitted through form
         db.query(sqlquery, ["%" + req.query.advKeyword + "%"], (err, result) => {
             if (err) {
+                // redirect to index page if error
                 res.redirect('./');
             } else {
+                // create newData object by combining shopData and data found in database
                 let newData = Object.assign({}, shopData, {availableBooks:result});
-                if (!newData.availableBooks.length) {
+                if (!newData.availableBooks.length) { // check if array empty
                     res.send("No results found");
                 } else {
+                    // display search results page if array not empty
                     res.render("search-results.ejs", newData);
                 }
             }
@@ -91,6 +97,8 @@ module.exports = function(app, shopData) {
     });                                                                                       
     app.post('/registered', function (req,res) {
         // saving data in database
-        res.send(' Hello '+ req.body.first + ' '+ req.body.last +' you are now registered!  We will send an email to you at ' + req.body.email);                                                                              
+        res.send(' Hello ' + req.body.first + ' ' + req.body.last
+                  + ' you are now registered!  We will send an email to you at '
+                  + req.body.email);                                                                              
     }); 
 }

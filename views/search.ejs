@@ -7,14 +7,16 @@
   <body>
     <h1>Search <%=shopName%></h1>
     <h2>What book do you want?</h2>
+    <!-- Form submission sends user to /search-result route -->
     <form action="/search-result" method="GET">
       <p>Strict Search</p>
       <input id="search-box" type="text" name="keyword" value="Default">
       <input type="submit" value="Search" >
     </form>
+    <!-- Form submission sends user to /advanced-search-result route -->
     <form action="/advanced-search-result" method="GET">
       <p>Advanced Search</p>
-      <input id="search-box" type="text" name="advKeyword" value="Default">
+      <input id="advanced-search-box" type="text" name="advKeyword" value="Default">
       <input type="submit" value="Advanced Search" >
     </form>
   </body>
